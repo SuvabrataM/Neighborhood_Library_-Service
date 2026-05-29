@@ -154,3 +154,12 @@ def get_member_borrowed_books(db: Session, member_id: int):
 ).all()
 
     return borrowed_books
+
+# ---------------- MEMBER BORROW HISTORY ----------------
+def get_member_borrow_history(db: Session, member_id: int):
+
+    history = db.query(models.BorrowRecord).filter(
+    models.BorrowRecord.member_id == member_id
+).all()
+
+    return history

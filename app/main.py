@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.database import engine, Base
 
-from app.routes import books, members
+from app.routes import books, members, borrow
 
 app = FastAPI(title="Neighborhood Library Service")
 
@@ -9,6 +9,7 @@ Base.metadata.create_all(bind=engine)
 
 app.include_router(books.router)
 app.include_router(members.router)
+app.include_router(borrow.router)
 
 @app.get("/")
 def home():

@@ -65,3 +65,15 @@ class BorrowResponse(BaseModel):
     class Config:
         orm_mode = True
 
+# ---------------- MEMBER BORROW HISTORY ----------------
+
+class BorrowHistoryResponse(BaseModel):
+
+    id: int
+    member_id: int
+    book_id: int
+    borrowed_at: datetime
+    returned_at: Optional[datetime]
+    class Config:
+        orm_mode = True
+
