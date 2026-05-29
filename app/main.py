@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from database import engine, Base
+from app.database import engine, Base
 
-from routes import books, members
+from app.routes import books, members
 
 app = FastAPI(title="Neighborhood Library Service")
 

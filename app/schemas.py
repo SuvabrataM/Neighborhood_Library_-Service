@@ -14,10 +14,17 @@ class BookBase(BaseModel):
 class BookCreate(BookBase):
     pass
 
+class BookUpdate(BaseModel):
+    title: Optional[str] = None
+    author: Optional[str] = None
+    isbn: Optional[str] = None
+    total_copies: Optional[int] = None
+    available_copies: Optional[int] = None
+
 class BookResponse(BookBase):
     id: int
-class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True
 
 
 # ---------------- MEMBER SCHEMAS ----------------
@@ -30,10 +37,16 @@ class MemberBase(BaseModel):
 class MemberCreate(MemberBase):
     pass
 
+class MemberUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+
 class MemberResponse(MemberBase):
     id: int
-class Config:
-    orm_mode = True
+
+    class Config:
+        orm_mode = True
 
 
 # ---------------- BORROW SCHEMAS ----------------
@@ -48,6 +61,7 @@ class BorrowResponse(BaseModel):
     book_id: int
     borrowed_at: datetime
     returned_at: Optional[datetime]
-class Config:
-    orm_mode = True
+
+    class Config:
+        orm_mode = True
 

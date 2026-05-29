@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship
 from app.database import Base
 
 class Book(Base):
-    tablename = "books"
+    __tablename__ = "books"
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
@@ -16,7 +16,7 @@ class Book(Base):
 
 
 class Member(Base):
-    tablename = "members"
+    __tablename__ = "members"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
@@ -25,7 +25,7 @@ class Member(Base):
 
 
 class BorrowRecord(Base):
-    tablename = "borrow_records"
+    __tablename__ = "borrow_records"
 
     id = Column(Integer, primary_key=True, index=True)
     member_id = Column(Integer, ForeignKey("members.id"))
