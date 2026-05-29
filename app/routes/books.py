@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-import app.crud as cr
-import app.schemas as sch
+from app import crud, schemas
 from app.database import get_db
 
 router = APIRouter(
@@ -10,17 +9,17 @@ prefix="/books",
 tags=["Books"]
 )
 
-@router.post("/", response_model=sch.BookResponse)
-def create_book(book: sch.BookCreate, db: Session = Depends(get_db)):
-    return cr.create_book(db, book)
+@router.post("/", response_model=schemas.BookResponse)
+def create_book(book: schemas.BookCreate, db: Session = Depends(get_db)):
+    return crud.create_book(db, book)
 
-@router.get("/", response_model=list[sch.BookResponse])
+@router.get("/", response_model=list[schemas.BookResponse])
 def get_books(db: Session = Depends(get_db)):
-    return cr.get_books(db)
+    return crud.get_books(db)
 
-@router.put("/{book_id}", response_model=sch.BookResponse)
-def update_book(book_id: int, book: sch.BookCreate, db: Session = Depends(get_db)):
-    updated_book = cr.update_book(db, book_id, book)
+@router.put("/{book_id}", response_model=schemas.BookResponse)
+def update_book(book_id: int, book: schemas.BookCreate, db: Session = Depends(get_db)):
+    updated_book = crud.update_book(db, book_id, book)
 
     if not updated_book:
         raise HTTPException(status_code=404, detail="Book not found")
