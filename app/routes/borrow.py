@@ -48,8 +48,8 @@ db: Session = Depends(get_db)
 
 # ---------------- MEMBER BORROWED BOOKS ----------------
 
-@router.get("/member/{member_id}",
-response_model=list[schemas.BorrowResponse])
+@router.get("/member_currentholding/{member_id}",
+response_model=list[schemas.BorrowDetailsResponse])
 def get_member_borrowed_books(
 member_id: int,
 db: Session = Depends(get_db)
@@ -61,7 +61,7 @@ db: Session = Depends(get_db)
 
 @router.get(
 "/history/{member_id}",
-response_model=list[schemas.BorrowHistoryResponse]
+response_model=list[schemas.BorrowDetailsResponse]
 )
 def get_member_borrow_history(
 member_id: int,

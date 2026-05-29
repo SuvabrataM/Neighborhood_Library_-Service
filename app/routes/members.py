@@ -47,3 +47,113 @@ db: Session = Depends(get_db)
     )
 
     return updated_member
+
+# ---------------- SEARCH MEMBER BY ID ----------------
+
+@router.get("/search/id/{member_id}",
+response_model=sch.MemberResponse)
+def search_member_by_id(
+member_id: int,
+db: Session = Depends(get_db)
+):
+
+    member = cr.search_member_by_id(db, member_id)
+
+    if not member:
+        raise HTTPException(
+            status_code=404,
+            detail="Member not found"
+        )
+
+    return member
+
+# ---------------- SEARCH MEMBER BY NAME ----------------
+
+@router.get("/search/name/{name}",
+response_model=list[sch.MemberResponse])
+def search_member_by_name(
+name: str,
+db: Session = Depends(get_db)
+):
+
+    members = cr.search_member_by_name(db, name)
+
+    if not members:
+        raise HTTPException(
+            status_code=404,
+            detail="No members found"
+        )
+
+    return members
+
+# ---------------- SEARCH MEMBER BY PHONE ----------------
+
+@router.get("/search/phone/{phone}",
+response_model=list[sch.MemberResponse])
+def search_member_by_phone(
+phone: str,
+db: Session = Depends(get_db)
+):
+
+    members = cr.search_member_by_phone(db, phone)
+
+    if not members:
+        raise HTTPException(
+            status_code=404,
+            detail="No members found"
+        )
+
+    return members
+
+# ---------------- DELETE MEMBER BY ID ----------------
+
+@router.delete("/delete/id/{member_id}")
+def delete_member_by_id(
+member_id: int,
+db: Session = Depends(get_db)
+):
+
+    result = cr.delete_member_by_id(db, member_id)
+
+    if not result:
+        raise HTTPException(
+            status_code=404,
+            detail="Member not found"
+        )
+
+    return result
+
+# ---------------- DELETE MEMBER BY NAME ----------------
+
+@router.delete("/delete/name/{name}")
+def delete_member_by_name(
+name: str,
+db: Session = Depends(get_db)
+):
+
+    result = cr.delete_member_by_name(db, name)
+
+    if "error" in result:
+        raise HTTPException(
+            status_code=404,
+            detail=result["error"]
+        )
+
+    return result
+
+# ---------------- DELETE MEMBER BY PHONE ----------------
+
+@router.delete("/delete/phone/{phone}")
+def delete_member_by_phone(
+phone: str,
+db: Session = Depends(get_db)
+):
+    result = cr.delete_member_by_phone(db, phone)
+
+    if "error" in result:
+        raise HTTPException(
+            status_code=404,
+            detail=result["error"]
+        )
+
+    return result

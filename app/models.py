@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 
@@ -14,6 +14,8 @@ class Book(Base):
     total_copies = Column(Integer, default=1)
     available_copies = Column(Integer, default=1)
 
+    is_deleted = Column(Boolean, default=False)
+
 
 class Member(Base):
     __tablename__ = "members"
@@ -22,6 +24,8 @@ class Member(Base):
     name = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
     phone = Column(String)
+
+    is_deleted = Column(Boolean, default=False)
 
 
 class BorrowRecord(Base):
@@ -34,4 +38,3 @@ class BorrowRecord(Base):
     returned_at = Column(DateTime(timezone=True), nullable=True)
     member = relationship("Member")
     book = relationship("Book")
-
