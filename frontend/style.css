@@ -1,0 +1,57 @@
+body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+text-align: center;
+}
+
+.container {
+margin-top: 100px;
+}
+
+h1 {
+color: #333;
+}
+
+.menu button {
+width: 220px;
+padding: 15px;
+margin: 10px;
+font-size: 16px;
+cursor: pointer;
+border: none;
+background-color: #2d89ef;
+color: white;
+border-radius: 5px;
+}
+
+.menu button:hover {
+background-color: #1b5fa7;
+}
+
+.form-container {
+background: white;
+padding: 20px;
+margin: 20px auto;
+width: 60%;
+border-radius: 5px;
+}
+
+input {
+width: 80%;
+padding: 10px;
+margin: 5px;
+}
+
+table {
+width: 100%;
+margin-top: 20px;
+border-collapse: collapse;
+}
+
+table, th, td {
+border: 1px solid gray;
+}
+
+th, td {
+padding: 10px;
+}

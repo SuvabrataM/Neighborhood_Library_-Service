@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manage Members</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script_members.js"></script>
+</head>
+
+<body>
+
+    <h1>Library Members</h1>
+
+    <!-- ================= ADD MEMBER ================= -->
+
+    <h2>Add Member</h2>
+
+    <input type="text" id="member_name" placeholder="Name">
+    <input type="email" id="member_email" placeholder="Email">
+    <input type="text" id="member_phone" placeholder="Phone">
+
+    <button onclick="addMember()">
+        Add Member
+    </button>
+
+    <hr>
+
+    <!-- ================= UPDATE MEMBER ================= -->
+
+    <h2>Update Member</h2>
+
+    <input type="number" id="update_member_id" placeholder="Member ID">
+
+    <input type="text" id="update_member_name" placeholder="New Name">
+
+    <input type="email" id="update_member_email" placeholder="New Email">
+
+    <input type="text" id="update_member_phone" placeholder="New Phone">
+
+    <button onclick="updateMember()">
+        Update Member
+    </button>
+
+    <hr>
+
+    <!-- ================= SEARCH MEMBER ================= -->
+
+    <h2>Search Member</h2>
+
+    <h3>Search By ID</h3>
+
+    <input type="number" id="search_member_id" placeholder="Member ID">
+
+    <button onclick="searchMemberById()">
+        Search By ID
+    </button>
+
+    <h3>Search By Name</h3>
+
+    <input type="text" id="search_member_name" placeholder="Member Name">
+
+    <button onclick="searchMemberByName()">
+        Search By Name
+    </button>
+
+    <h3>Search By Phone</h3>
+
+    <input type="text" id="search_member_phone" placeholder="Phone">
+
+    <button onclick="searchMemberByPhone()">
+        Search By Phone
+    </button>
+
+    <hr>
+
+    <!-- ================= DELETE MEMBER ================= -->
+
+    <h2>Delete Member</h2>
+
+    <h3>Delete By ID</h3>
+
+    <input type="number" id="delete_member_id" placeholder="Member ID">
+
+    <button onclick="deleteMemberById()">
+        Delete By ID
+    </button>
+
+    <h3>Delete By Name</h3>
+
+    <input type="text" id="delete_member_name" placeholder="Member Name">
+
+    <button onclick="deleteMemberByName()">
+        Delete By Name
+    </button>
+
+    <h3>Delete By Phone</h3>
+
+    <input type="text" id="delete_member_phone" placeholder="Phone">
+
+    <button onclick="deleteMemberByPhone()">
+        Delete By Phone
+    </button>
+
+    <hr>
+
+    <!-- ================= GET ALL MEMBERS ================= -->
+
+    <h2>All Members</h2>
+
+    <button onclick="getMembers()">
+        Load Members
+    </button>
+
+    <table id="membersTable" border="1">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>

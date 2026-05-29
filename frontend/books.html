@@ -1,0 +1,191 @@
+<!-- books.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Books</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h1>Library Books</h1>
+
+    <!-- ---------------- ADD BOOK ---------------- -->
+
+    <h2>Add Book</h2>
+
+    <input type="text"
+           id="title"
+           placeholder="Book Title">
+
+    <input type="text"
+           id="author"
+           placeholder="Author">
+
+    <input type="text"
+           id="isbn"
+           placeholder="ISBN">
+
+    <input type="number"
+           id="total_copies"
+           placeholder="Total Copies">
+
+    <input type="number"
+           id="available_copies"
+           placeholder="Available Copies">
+
+    <button onclick="addBook()">
+        Add Book
+    </button>
+
+    <hr>
+
+    <!-- ---------------- UPDATE BOOK ---------------- -->
+
+    <h2>Update Book</h2>
+
+    <input type="number"
+           id="update_book_id"
+           placeholder="Book ID">
+
+    <input type="text"
+           id="update_title"
+           placeholder="New Title">
+
+    <input type="text"
+           id="update_author"
+           placeholder="New Author">
+
+    <input type="text"
+           id="update_isbn"
+           placeholder="New ISBN">
+
+    <input type="number"
+           id="update_total_copies"
+           placeholder="New Total Copies">
+
+    <input type="number"
+           id="update_available_copies"
+           placeholder="New Available Copies">
+
+    <button onclick="updateBook()">
+        Update Book
+    </button>
+
+    <hr>
+
+    <!-- ---------------- SEARCH BOOK ---------------- -->
+
+    <h2>Search Book</h2>
+
+    <input type="number"
+           id="search_book_id"
+           placeholder="Search By ID">
+
+    <button onclick="searchBookById()">
+        Search By ID
+    </button>
+
+    <br><br>
+
+    <input type="text"
+           id="search_title"
+           placeholder="Search By Title">
+
+    <button onclick="searchBookByTitle()">
+        Search By Title
+    </button>
+
+    <br><br>
+
+    <input type="text"
+           id="search_author"
+           placeholder="Search By Author">
+
+    <button onclick="searchBooksByAuthor()">
+        Search By Author
+    </button>
+
+    <hr>
+
+    <!-- ---------------- DELETE BOOK ---------------- -->
+
+    <h2>Delete Book</h2>
+
+    <input type="number"
+           id="delete_book_id"
+           placeholder="Delete By ID">
+
+    <button onclick="deleteBookById()">
+        Delete By ID
+    </button>
+
+    <br><br>
+
+    <input type="text"
+           id="delete_book_title"
+           placeholder="Delete By Title">
+
+    <button onclick="deleteBookByTitle()">
+        Delete By Title
+    </button>
+
+    <br><br>
+
+    <input type="text"
+           id="delete_book_author"
+           placeholder="Delete By Author">
+
+    <button onclick="deleteBooksByAuthor()">
+        Delete By Author
+    </button>
+
+    <hr>
+
+    <!-- ---------------- GET BOOKS ---------------- -->
+
+    <h2>All Books</h2>
+
+    <button onclick="getBooks()">
+        Get All Books
+    </button>
+
+    <br><br>
+
+    <table border="1"
+           id="booksTable">
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Total Copies</th>
+                <th>Available Copies</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <script src="script_books.js"></script>
+
+</body>
+
+</html>

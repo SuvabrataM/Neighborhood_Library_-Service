@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Borrow Management</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h1>Borrow / Return Books</h1>
+
+    <!-- ---------------- BORROW BOOK ---------------- -->
+
+    <h2>Borrow Book</h2>
+
+    <input type="number"
+           id="borrow_member_id"
+           placeholder="Member ID">
+
+    <input type="number"
+           id="borrow_book_id"
+           placeholder="Book ID">
+
+    <button onclick="borrowBook()">
+        Borrow Book
+    </button>
+
+    <hr>
+
+    <!-- ---------------- RETURN BOOK ---------------- -->
+
+    <h2>Return Book</h2>
+
+    <input type="number"
+           id="return_record_id"
+           placeholder="Borrow Record ID">
+
+    <button onclick="returnBook()">
+        Return Book
+    </button>
+
+    <hr>
+
+    <!-- ---------------- CURRENT HOLDINGS ---------------- -->
+
+    <h2>Member Current Holdings</h2>
+
+    <input type="number"
+           id="holding_member_id"
+           placeholder="Member ID">
+
+    <button onclick="getCurrentHoldings()">
+        Get Current Holdings
+    </button>
+
+    <hr>
+
+    <!-- ---------------- BORROW HISTORY ---------------- -->
+
+    <h2>Member Borrow History</h2>
+
+    <input type="number"
+           id="history_member_id"
+           placeholder="Member ID">
+
+    <button onclick="getBorrowHistory()">
+        Get Borrow History
+    </button>
+
+    <hr>
+
+    <!-- ---------------- RESULTS TABLE ---------------- -->
+
+    <table border="1"
+           id="borrowTable">
+
+        <thead>
+
+            <tr>
+                <th>Record ID</th>
+                <th>Member ID</th>
+                <th>Book ID</th>
+                <th>Book Title</th>
+                <th>Borrowed At</th>
+                <th>Returned At</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <script src="script_borrow.js"></script>
+
+</body>
+
+</html>
